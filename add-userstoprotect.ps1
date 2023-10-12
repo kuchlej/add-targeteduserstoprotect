@@ -10,3 +10,4 @@ $formatted_ul = $user_list | ForEach-Object { $_.DisplayName + ";" + $_.UserPrin
 $policy = get-antiphishpolicy | Where-Object -Property Identity -Match "Standard"
 $policyID = $policy.Identity
 set-antiphishpolicy -Identity $policyID -TargetedUsersToProtect $formatted_ul
+#extra comment just to test github
