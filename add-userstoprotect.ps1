@@ -11,4 +11,4 @@ $user_list = Get-MsolUser | Where-Object -Property isLicensed -eq True
 $formatted_ul = $user_list | ForEach-Object { $_.DisplayName + ";" + $_.UserPrincipalName}
 $policyID = (get-antiphishpolicy | Where-Object -Property Identity -Match "Standard").Identity
 set-antiphishpolicy -Identity $policyID -TargetedUsersToProtect $formatted_ul
-Get-AntiPhishPolicy -Identity $policyID
+(Get-AntiPhishPolicy -Identity $policyID).TargetedUsersToProtect | Sort-Object
